@@ -10,14 +10,14 @@ function game () {
 
     let opponentResult = possibleResult[Math.floor(Math.random()*possibleResult.length)];
 
-    let userResult = prompt("Let's play Rock, Paper, Scissors! Make you choice!");
+    let userResult = prompt("Let's play Rock, Paper, Scissors! Make your choice!");
 
     capitalize(userResult);
 
-    if (userResult !== ('Rock' || 'Paper' || 'Scissors')) { 
+    if (userResult !== 'Rock' && 'Paper' && 'Scissors') { 
 
         alert('Try again! Please, only type words "Rock", "Paper" or "Scissors"!');
-        userResult = prompt("Make you choice!");       
+        userResult = prompt("Make your choice!");       
         capitalize(userResult);
  
     }
