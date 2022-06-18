@@ -14,7 +14,7 @@ function game () {
 
     capitalize(userResult);
 
-    if (userResult !== 'Rock' && 'Paper' && 'Scissors') { 
+    if ((userResult !== 'Rock') && (userResult !== 'Paper') && (userResult !== 'Scissors')) { 
 
         alert('Try again! Please, only type words "Rock", "Paper" or "Scissors"!');
         userResult = prompt("Make your choice!");       
