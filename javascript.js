@@ -1,5 +1,5 @@
 const possibleResult = ['Rock', 'Paper', 'Scissors'];
-let opponentResult
+let opponentResult;
 
 function roundOpponent() {
     opponentResult = possibleResult[Math.floor(Math.random()*possibleResult.length)];
@@ -15,7 +15,7 @@ const announcement = document.querySelector('#announcement');
 let countUser = 0;
 let countOpponent = 0;
 
-function round() {
+function playRound() {
 
     let outcome1 = (userResult == 'Rock' && opponentResult == 'Scissors') ||
                     (userResult == 'Paper' && opponentResult == 'Rock') ||
@@ -52,29 +52,7 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         userResult = button.className;
         roundOpponent();
-        round();
+        playRound();
     });
 
 });
-
-/*const outcome = document.querySelector('#game');
-const userScore = document.querySelector('#userscore');
-const opponentScore = document.querySelector('#opponentscore');
-
-if (outcome.textContent == `You won! ${userResult} beats ${opponentResult}`) {
-    userScore.textContent += '1';
-    console.log(userScore.textContent);
-    } else if (outcome.textContent = `You lost! ${opponentResult} beats ${userResult}`) {
-    opponentScore.textContent += '1';
-    console.log(opponentScore.textContent);
-}  
-
-/*function game () { 
-
-}
-
-for (let i = 0; i < 1; i++) {
-    
-    game();
-
-}*/
