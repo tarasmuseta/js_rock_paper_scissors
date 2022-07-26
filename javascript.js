@@ -1,62 +1,80 @@
-function game () { 
+const possibleResult = ['Rock', 'Paper', 'Scissors'];
+let opponentResult
 
-    function capitalize (string) {
-        let string1 = string.charAt(0).toUpperCase();
-        let string2 = string.slice(1).toLowerCase();
-        userResult = string1 + string2;    
+function roundOpponent() {
+    opponentResult = possibleResult[Math.floor(Math.random()*possibleResult.length)];
+}
+
+let userResult;
+
+const opponent = document.querySelector('#opponent');
+const outcome = document.querySelector('#game');
+const userScore = document.querySelector('#userscore');
+const opponentScore = document.querySelector('#opponentscore');
+const announcement = document.querySelector('#announcement');
+let countUser = 0;
+let countOpponent = 0;
+
+function round() {
+
+    let outcome1 = (userResult == 'Rock' && opponentResult == 'Scissors') ||
+                    (userResult == 'Paper' && opponentResult == 'Rock') ||
+                    (userResult == 'Scissors' && opponentResult == 'Paper');
+    let outcome2 = (userResult == 'Scissors' && opponentResult == 'Rock') ||
+                    (userResult == 'Rock' && opponentResult == 'Paper') ||
+                    (userResult == 'Paper' && opponentResult == 'Scissors');
+
+    if (outcome1) {
+        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        outcome.textContent = `You won! ${userResult} beats ${opponentResult}`;
+        countUser++;
+        userScore.textContent = `${countUser}`;
+    } else if (outcome2) {
+        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        outcome.textContent = `You lost! ${opponentResult} beats ${userResult}`;
+        countOpponent++;
+        opponentScore.textContent = `${countOpponent}`;
+    } else {
+        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        outcome.textContent = "It's a tie!";
+    } 
+
+    if (countUser == 5) {
+        announcement.textContent = 'Congratulations! You are the winner!';
+    } else if (countOpponent == 5) {
+        announcement.textContent = 'Too bad! Your opponent is the winner!';
     }
+}
 
-    const possibleResult = ['Rock', 'Paper', 'Scissors'];
+const buttons = document.querySelectorAll("button");
 
-    let opponentResult = possibleResult[Math.floor(Math.random()*possibleResult.length)];
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        userResult = button.className;
+        roundOpponent();
+        round();
+    });
 
-    let userResult = prompt("Let's play Rock, Paper, Scissors! Make your choice!");
+});
 
-    capitalize(userResult);
+/*const outcome = document.querySelector('#game');
+const userScore = document.querySelector('#userscore');
+const opponentScore = document.querySelector('#opponentscore');
 
-    if ((userResult !== 'Rock') && (userResult !== 'Paper') && (userResult !== 'Scissors')) { 
+if (outcome.textContent == `You won! ${userResult} beats ${opponentResult}`) {
+    userScore.textContent += '1';
+    console.log(userScore.textContent);
+    } else if (outcome.textContent = `You lost! ${opponentResult} beats ${userResult}`) {
+    opponentScore.textContent += '1';
+    console.log(opponentScore.textContent);
+}  
 
-        alert('Try again! Please, only type words "Rock", "Paper" or "Scissors"!');
-        userResult = prompt("Make your choice!");       
-        capitalize(userResult);
- 
-    }
- 
-    alert(`Your opponent chose ${opponentResult}!`);
-
-    let Outcome1 = (userResult === 'Rock' && opponentResult === 'Scissors') ||
-                    (userResult === 'Paper' && opponentResult === 'Rock') ||
-                    (userResult === 'Scissors' && opponentResult === 'Paper');
-
-    let Outcome2 = (userResult === 'Scissors' && opponentResult === 'Rock') ||
-                    (userResult === 'Rock' && opponentResult === 'Paper') ||
-                    (userResult === 'Paper' && opponentResult === 'Scissors');
-
-    let Outcome3 = (userResult === 'Scissors' && opponentResult === 'Scissors') ||
-                    (userResult === 'Rock' && opponentResult === 'Rock') ||
-                    (userResult === 'Paper' && opponentResult === 'Paper');
-
-    if (Outcome1) {
-
-        alert(`You won! ${userResult} beats ${opponentResult}`);
-        console.log(`You won! ${userResult} beats ${opponentResult}`);
-
-    } else if (Outcome2) {
-
-        alert(`You lost! ${opponentResult} beats ${userResult}`);
-        console.log(`You lost! ${opponentResult} beats ${userResult}`);
-
-    } else if (Outcome3){
-
-        alert("It's a tie!");
-        console.log("It's a tie!");
-
-    }
+/*function game () { 
 
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 1; i++) {
     
     game();
 
-}
+}*/
