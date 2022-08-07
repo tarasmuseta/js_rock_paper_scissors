@@ -25,25 +25,31 @@ function playRound() {
                     (userResult == 'Paper' && opponentResult == 'Scissors');
 
     if (outcome1) {
-        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        opponent.textContent = `Your friend chose ${opponentResult}!`;
         outcome.textContent = `You won! ${userResult} beats ${opponentResult}`;
         countUser++;
         userScore.textContent = `${countUser}`;
     } else if (outcome2) {
-        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        opponent.textContent = `Your friend chose ${opponentResult}!`;
         outcome.textContent = `You lost! ${opponentResult} beats ${userResult}`;
         countOpponent++;
         opponentScore.textContent = `${countOpponent}`;
     } else {
-        opponent.textContent = `Your opponent chose ${opponentResult}!`;
+        opponent.textContent = `Your friend chose ${opponentResult}!`;
         outcome.textContent = "It's a tie!";
     } 
 
     if (countUser == 5) {
-        announcement.textContent = 'Congratulations! You are the winner!';
+        opponent.textContent = 'Congratulations! You are the winner!';
+        outcome.textContent = "";
     } else if (countOpponent == 5) {
-        announcement.textContent = 'Too bad! Your opponent is the winner!';
-    }
+        opponent.textContent = 'Too bad! Your opponent is the winner!';
+        outcome.textContent = "";
+    } /*else if (countUser == 6 || countOpponent == 6) {
+    	announcement.textContent ='';
+    	countUser = '0';
+	    countOpponent = '0';
+    }*/
 }
 
 const buttons = document.querySelectorAll("button");

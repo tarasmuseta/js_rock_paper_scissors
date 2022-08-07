@@ -1,78 +1,74 @@
-button {
-    border-radius: 16px;
-    border: none;
-    background-color: steelblue;
-    color: white;
-    font-size: 24px;
-    padding: 24px 36px;
-    text-align: center;
-    margin-top: 8rem;
-    margin-bottom: 2rem;
-    font-weight: 900;
-  }
-  
-button:hover {
-    background-color: lightseagreen;
-    color: white;
-    transition-duration: 0.2s;
-  }
-
-button:active {
-    background-color: powderblue;
-    box-shadow: 0 5px #666;
-    transform: translateY(8px);
-  }
-
-#buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 125px;
-    gap: 32px;
-    margin: 32px;
+html {
+  background: url('./background.webp') bottom center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-color: #373e98;
+  background-size: 90vh;
+  padding-top: 1%;
 }
 
-.results, #announcement {
+button {
+  border-radius: 16px;
+  border: #fee36e;
+  background-color: #fee36e;
+  color:#2a2a2a;
+  font-size: 3rem;
+  padding: 1rem 1.5rem;
+  width: 270px;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  }
+  
+button:active {
+  transform: scale(1.05);
+  transition: all .05s ease-in-out;
+  border-color:#ceb92c;
+  box-shadow: 0 0 1rem #ceb92c;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.results {
   display: flex;
   flex-direction: column;
   font-size: 48px;
-  background-color: slateblue;
-  color: honeydew;
+  background-color: #ceb92c;
+  color: #FFFFFF;
   padding: 16px;
   height: 120px;
   text-align: center;
   justify-content: center;
   align-self: center;
   min-width: 800px;
-  max-width: 800px;
   border-radius: 16px;
-  margin: 32px;
-}
-
-body {
-  background-color: turquoise;
-  display: flex;
-  flex-direction: column;
+  margin-top: 15rem;
 }
 
 .score {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 900px;
 }
 
 #userscore, #opponentscore {
   display: flex;
-  background-color: floralwhite;
+  background-color: #f16775;
+  color:#FFFFFF;
   align-items: center;
   justify-content: center;
-  height: 8rem;
-  width: 8rem;
+  height: 120px;
+  width: 120px;
   text-align: center;
   padding: 32px;
   font-size: 72px;
-  margin-left: 64px;
-  margin-right: 64px;
   border-radius: 16px;
 }
 
@@ -80,20 +76,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 900px;
 }
 
 .title {
   display: flex;
-  background-color: floralwhite;
+  background-color: #f16775;
   align-items: center;
   justify-content: center;
-  height: 2rem;
-  width: 8rem;
+  height: 60px;
+  width: 120px;
   text-align: center;
   padding: 32px;
   font-size: 36px;
   margin-bottom: 16px;
-  margin-left: 64px;
-  margin-right: 64px;
   border-radius: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
 }
