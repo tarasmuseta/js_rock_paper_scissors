@@ -40,10 +40,10 @@ function playRound() {
     } 
 
     if (countUser == 5) {
-        opponent.textContent = 'Congratulations! You are the winner!';
+        opponent.textContent = 'Congratulations!\nYou are the winner!';
         outcome.textContent = "";
     } else if (countOpponent == 5) {
-        opponent.textContent = 'Too bad! Your opponent is the winner!';
+        opponent.textContent = 'Your friend is the winner!';
         outcome.textContent = "";
     } /*else if (countUser == 6 || countOpponent == 6) {
     	announcement.textContent ='';
